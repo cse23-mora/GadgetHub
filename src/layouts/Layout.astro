@@ -2,8 +2,7 @@
 import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import HeroSection from "../components/HeroSection.astro";
-import AboutSection from "../components/AboutSection.astro";
+import Preloader from '../components/Preloader.astro';
 ---
 
 <html lang="en" class="bg-gray-50 text-gray-900">
@@ -15,15 +14,10 @@ import AboutSection from "../components/AboutSection.astro";
   <body class="flex flex-col min-h-screen">
     <!-- Header -->
 
-
+    <Preloader />
 	<Header />
 
-    <!-- Hero Section -->
 
-
-
-
-    <!-- Main content -->
     <main class="flex-grow max-w-6xl mx-auto p-6">
       <slot />
     </main>
