@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+---
+
+<header
+  class="w-full shadow-md pt-2 relative"
+  style="background: linear-gradient(70deg, #d863fc, #15ffe0, #68f7af);"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 h-16">
+    <a href="/" class="flex items-center space-x-2 font-bold text-xl">
+      <img src="/logo-header.png" alt="GadgetHub Logo" class="h-12 w-auto" />
+    </a>
+
+    <nav class="hidden md:flex space-x-4">
+      <a href="/" class="btn btn-outline btn-info">Home</a>
+      <a href="/text-tool" class="btn btn-outline btn-info">Text Tool</a>
+      <a href="/pdf-converter" class="btn btn-outline btn-info">PDF Converter</a>
+      <a href="#about" class="btn btn-outline btn-info">About</a>
+    </nav>
+
+    <div class="md:hidden dropdown dropdown-end">
+      <label tabindex="0" class="btn btn-outline btn-info">
+        ☰
+      </label>
+
+      <ul
+        tabindex="0"
+        class="dropdown-content menu p-4 shadow bg-white rounded-box w-52 mt-4"
+      >
+        <li>
+          <a href="/" class="btn btn-outline btn-info w-full mb-2">Home</a>
+        </li>
+        <li>
+          <a href="/text-tool" class="btn btn-outline btn-info w-full mb-2">Text Tool</a>
+        </li>
+        <li>
+          <a href="/pdf-converter" class="btn btn-outline btn-info w-full mb-2">PDF Converter</a>
+        </li>
+        <li>
+          <a href="#about" class="btn btn-outline btn-info w-full">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>

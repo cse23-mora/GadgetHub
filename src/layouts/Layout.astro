@@ -1,6 +1,9 @@
 ---
 import "../styles/global.css";
-
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import HeroSection from "../components/HeroSection.astro";
+import AboutSection from "../components/AboutSection.astro";
 ---
 
 <html lang="en" class="bg-gray-50 text-gray-900">
@@ -11,37 +14,13 @@ import "../styles/global.css";
   </head>
   <body class="flex flex-col min-h-screen">
     <!-- Header -->
-<header
-  class="pt-4 pb-2 shadow-md w-full"
-  style="background: linear-gradient(90deg, #d863fc, #15ffe0, #68f7af);"
->
-
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
-    <!-- Logo -->
-    <a href="/" class="flex items-center space-x-2 font-bold text-xl">
-      <img src="/logo-header.png" alt="GadgetHub Logo" style="height: 3.25rem;" class="w-auto" />
-      <!-- <span>GadgetHub</span> -->
-    </a>
-
-    <!-- Navigation Buttons -->
-  <nav class="flex space-x-4">
-  <a href="/" class="px-4 py-2 bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
-    Home
-  </a>
-  <a href="/text-tool" class="px-4 py-2  bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
-    Text Tool
-  </a>
-  <a href="/pdf-converter" class="px-4 py-2  bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
-    PDF Converter
-  </a>
-  <a href="#about" class="px-4 py-2  bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
-    About
-  </a>
-</nav>
 
 
-  </div>
-</header>
+	<Header />
+
+    <!-- Hero Section -->
+
+
 
 
     <!-- Main content -->
@@ -49,10 +28,6 @@ import "../styles/global.css";
       <slot />
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-gray-300 p-4 text-center">
-      <p>⚡ GadgetHub.cse23.org — All tools run locally in your browser. No servers. No third-party access.</p>
-      <p class="mt-2">Special thanks to all contributors of GadgetHub on GitHub 🙌</p>
-    </footer>
+  <Footer/>
   </body>
 </html>
