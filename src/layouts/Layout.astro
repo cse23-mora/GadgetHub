@@ -1,22 +1,58 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import "../styles/global.css";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+---
+
+<html lang="en" class="bg-gray-50 text-gray-900">
+  <head>
+    <meta charset="UTF-8" />
+    <title>GadgetHub</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <!-- Header -->
+<header
+  class="pt-4 pb-2 shadow-md w-full"
+  style="background: linear-gradient(90deg, #d863fc, #15ffe0, #68f7af);"
+>
+
+  <div class="max-w-7xl mx-auto flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center space-x-2 font-bold text-xl">
+      <img src="/logo-header.png" alt="GadgetHub Logo" style="height: 3.25rem;" class="w-auto" />
+      <!-- <span>GadgetHub</span> -->
+    </a>
+
+    <!-- Navigation Buttons -->
+  <nav class="flex space-x-4">
+  <a href="/" class="px-4 py-2 bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
+    Home
+  </a>
+  <a href="/text-tool" class="px-4 py-2  bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
+    Text Tool
+  </a>
+  <a href="/pdf-converter" class="px-4 py-2  bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
+    PDF Converter
+  </a>
+  <a href="#about" class="px-4 py-2  bg-[#fa62f2cc] text-gray-900 font-semibold rounded-md shadow-md hover:bg-[#3ce2ff] hover:shadow-lg transition-all duration-200">
+    About
+  </a>
+</nav>
+
+
+  </div>
+</header>
+
+
+    <!-- Main content -->
+    <main class="flex-grow max-w-6xl mx-auto p-6">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300 p-4 text-center">
+      <p>⚡ GadgetHub.cse23.org — All tools run locally in your browser. No servers. No third-party access.</p>
+      <p class="mt-2">Special thanks to all contributors of GadgetHub on GitHub 🙌</p>
+    </footer>
+  </body>
+</html>
