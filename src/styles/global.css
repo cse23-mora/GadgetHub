@@ -3,29 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --navy-deep: #020b18;
-  --navy-mid: #061428;
-  --navy-light: #0a2040;
-  --blue-core: #0d4f8c;
-  --blue-bright: #1a7fd4;
-  --cyan-glow: #00d4ff;
-  --teal-accent: #00f5c4;
-  --purple-pop: #7b2fff;
-  --pink-flash: #ff2d78;
-  --white: #e8f4ff;
-  --white-dim: rgba(232, 244, 255, 0.6);
+  /* Logo-matched palette */
+  --bg-deep:      #0d0a14;
+  --bg-mid:       #120f1e;
+  --green-logo:   #81f133;
+  --teal-logo:    #15ffe0;
+  --purple-logo:  #582b7e;
+  --pink-logo:    #c837ab;
+  --white:        #f0fdf4;
+  --white-dim:    rgba(240, 253, 244, 0.6);
+  /* Keep these for card/component styles */
+  --cyan-glow:    #15ffe0;
+  --purple-pop:   #582b7e;
+  --pink-flash:   #c837ab;
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
-  background-color: var(--navy-deep);
+  background-color: var(--bg-deep);
   color: var(--white);
   overflow-x: hidden;
 }
 
-/* Animated background mesh */
+/* ── ANIMATED BACKGROUND ── */
 .bg-canvas {
   position: fixed;
   inset: 0;
@@ -34,86 +36,87 @@ body {
   pointer-events: none;
 }
 
+/* Deep dark base with gentle logo-color warmth */
 .bg-canvas::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(13, 79, 140, 0.55) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 40% at 80% 80%, rgba(0, 212, 255, 0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 60% at 60% 30%, rgba(123, 47, 255, 0.15) 0%, transparent 50%),
-    linear-gradient(160deg, #020b18 0%, #061428 40%, #030e1f 100%);
-  animation: meshShift 14s ease-in-out infinite alternate;
+    /* Green glow — top-left: signals "safe / all clear" */
+    radial-gradient(ellipse 70% 55% at 10% 5%,  rgba(129, 241, 51,  0.13) 0%, transparent 60%),
+    /* Purple glow — right side: trustworthy depth */
+    radial-gradient(ellipse 60% 50% at 90% 60%, rgba(88,  43,  126, 0.35) 0%, transparent 65%),
+    /* Teal glow — lower-center: calm reassurance */
+    radial-gradient(ellipse 55% 45% at 50% 95%, rgba(21,  255, 224, 0.10) 0%, transparent 55%),
+    /* Pink accent — upper-right: energy without alarm */
+    radial-gradient(ellipse 40% 35% at 85% 8%,  rgba(200, 55,  171, 0.10) 0%, transparent 50%),
+    linear-gradient(170deg, #0d0a14 0%, #120f1e 50%, #0a0d12 100%);
+  animation: breathe 12s ease-in-out infinite alternate;
 }
 
-@keyframes meshShift {
-  0%   { filter: hue-rotate(0deg) brightness(1); }
-  100% { filter: hue-rotate(20deg) brightness(1.08); }
+/* Slow breathing pulse — feels alive and protective, not threatening */
+@keyframes breathe {
+  0%   { opacity: 0.85; transform: scale(1); }
+  100% { opacity: 1;    transform: scale(1.04); }
 }
 
+/* Soft floating orbs — organic, not mechanical */
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.35;
-  animation: orbFloat linear infinite;
-}
-.orb-1 { width: 340px; height: 340px; background: radial-gradient(circle, #0d4f8c, transparent); top: -80px; left: -80px; animation-duration: 20s; }
-.orb-2 { width: 260px; height: 260px; background: radial-gradient(circle, #00d4ff, transparent); top: 30%; right: -60px; animation-duration: 17s; animation-delay: -5s; }
-.orb-3 { width: 200px; height: 200px; background: radial-gradient(circle, #7b2fff, transparent); bottom: 10%; left: 15%; animation-duration: 22s; animation-delay: -9s; }
-.orb-4 { width: 180px; height: 180px; background: radial-gradient(circle, #00f5c4, transparent); bottom: 5%; right: 10%; animation-duration: 19s; animation-delay: -3s; }
-
-@keyframes orbFloat {
-  0%   { transform: translate(0, 0) scale(1); }
-  33%  { transform: translate(30px, -40px) scale(1.08); }
-  66%  { transform: translate(-20px, 20px) scale(0.94); }
-  100% { transform: translate(0, 0) scale(1); }
+  filter: blur(80px);
+  animation: orbDrift ease-in-out infinite alternate;
 }
 
-.grid-lines {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(0, 212, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 212, 255, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  animation: gridDrift 40s linear infinite;
+/* Green orb — top-left, "you're safe here" */
+.orb-1 {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(129, 241, 51, 0.22), transparent 70%);
+  top: -100px; left: -100px;
+  animation-duration: 18s;
+}
+/* Purple orb — right, trustworthy anchor */
+.orb-2 {
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(88, 43, 126, 0.45), transparent 70%);
+  top: 25%; right: -80px;
+  animation-duration: 22s;
+  animation-delay: -6s;
+}
+/* Teal orb — bottom-left, calm & secure */
+.orb-3 {
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(21, 255, 224, 0.14), transparent 70%);
+  bottom: 5%; left: 8%;
+  animation-duration: 26s;
+  animation-delay: -11s;
+}
+/* Pink orb — bottom-right, warm energy */
+.orb-4 {
+  width: 220px; height: 220px;
+  background: radial-gradient(circle, rgba(200, 55, 171, 0.18), transparent 70%);
+  bottom: 10%; right: 5%;
+  animation-duration: 20s;
+  animation-delay: -4s;
 }
 
-@keyframes gridDrift {
-  0%   { background-position: 0 0; }
-  100% { background-position: 60px 60px; }
+@keyframes orbDrift {
+  0%   { transform: translate(0, 0)   scale(1); }
+  50%  { transform: translate(20px, -30px) scale(1.06); }
+  100% { transform: translate(-15px, 15px) scale(0.96); }
 }
 
-.scanline {
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.6), transparent);
-  top: -2px;
-  animation: scanSweep 6s linear infinite;
-}
-
-@keyframes scanSweep {
-  0%   { top: -2px; opacity: 0; }
-  5%   { opacity: 1; }
-  95%  { opacity: 0.8; }
-  100% { top: 100%; opacity: 0; }
-}
-
+/* Soft shimmer particles — like dust motes, gentle & non-threatening */
 .particle {
   position: absolute;
-  width: 2px;
-  height: 2px;
-  background: var(--cyan-glow);
   border-radius: 50%;
-  animation: particleFly linear infinite;
+  animation: particleFloat linear infinite;
   opacity: 0;
 }
 
-@keyframes particleFly {
-  0%   { transform: translateY(110vh) translateX(0); opacity: 0; }
-  10%  { opacity: 0.8; }
-  90%  { opacity: 0.6; }
-  100% { transform: translateY(-10vh) translateX(40px); opacity: 0; }
+@keyframes particleFloat {
+  0%   { transform: translateY(105vh) translateX(0);   opacity: 0; }
+  8%   { opacity: 0.6; }
+  92%  { opacity: 0.4; }
+  100% { transform: translateY(-5vh)  translateX(20px); opacity: 0; }
 }

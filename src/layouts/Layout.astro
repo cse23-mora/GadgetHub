@@ -23,8 +23,6 @@ import Preloader from '../components/Preloader.astro';
       <div class="orb orb-2"></div>
       <div class="orb orb-3"></div>
       <div class="orb orb-4"></div>
-      <div class="grid-lines"></div>
-      <div class="scanline"></div>
     </div>
 
     <Preloader />
@@ -43,7 +41,8 @@ import Preloader from '../components/Preloader.astro';
         for (let i = 0; i < 28; i++) {
           const p = document.createElement('div');
           p.classList.add('particle');
-          const colors = ['#00d4ff', '#00f5c4', '#7b2fff'];
+          // Logo-palette particles: green, teal, purple
+          const colors = ['#81f133', '#15ffe0', '#582b7e', '#c837ab'];
           p.style.background = colors[Math.floor(Math.random() * colors.length)];
           p.style.left = Math.random() * 100 + 'vw';
           const size = (Math.random() * 2 + 1.5) + 'px';
