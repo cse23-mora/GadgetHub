@@ -2,7 +2,31 @@
 import "../styles/global.css";
 ---
 
-   <footer class="bg-gray-800 text-gray-300 p-4 text-center">
-      <p>⚡ GadgetHub.cse23.org — All tools run locally in your browser. No servers. No third-party access.</p>
-      <p class="mt-2">Special thanks to all contributors of GadgetHub on GitHub 🙌</p>
-    </footer>
+<style>
+  footer {
+    border-top: 1px solid rgba(0, 212, 255, 0.1);
+    background: rgba(2, 11, 24, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 22px 24px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+  }
+
+  footer p {
+    font-size: 0.78rem;
+    color: rgba(232, 244, 255, 0.4);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    font-family: 'Exo 2', sans-serif;
+  }
+
+  footer p .highlight { color: #00d4ff; font-weight: 600; }
+  footer p .heart { color: #ff2d78; }
+</style>
+
+<footer>
+  <p>⚡ <span class="highlight">GadgetHub.cse23.org</span> — All tools run locally in your browser. No servers. No third-party access.</p>
+  <p>Special thanks to all contributors of GadgetHub on GitHub <span class="heart">♥</span></p>
+</footer>

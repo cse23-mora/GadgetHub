@@ -5,23 +5,55 @@ import Footer from "../components/Footer.astro";
 import Preloader from '../components/Preloader.astro';
 ---
 
-<html lang="en" class="bg-gray-50 text-gray-900">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>GadgetHub</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body class="flex flex-col min-h-screen">
-    <!-- Header -->
+  <body class="flex flex-col min-h-screen" style="font-family: 'Exo 2', sans-serif;">
+
+    <!-- Animated background -->
+    <div class="bg-canvas" id="bg-canvas">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-4"></div>
+      <div class="grid-lines"></div>
+      <div class="scanline"></div>
+    </div>
 
     <Preloader />
-	<Header />
+    <Header />
 
-
-    <main class="flex-grow max-w-6xl mx-auto p-6">
+    <main class="relative z-10 flex-grow max-w-6xl mx-auto w-full px-4">
       <slot />
     </main>
 
-  <Footer/>
+    <Footer />
+
+    <script>
+      // Spawn floating particles
+      const bg = document.getElementById('bg-canvas');
+      if (bg) {
+        for (let i = 0; i < 28; i++) {
+          const p = document.createElement('div');
+          p.classList.add('particle');
+          const colors = ['#00d4ff', '#00f5c4', '#7b2fff'];
+          p.style.background = colors[Math.floor(Math.random() * colors.length)];
+          p.style.left = Math.random() * 100 + 'vw';
+          const size = (Math.random() * 2 + 1.5) + 'px';
+          p.style.width = size;
+          p.style.height = size;
+          p.style.animationDuration = (Math.random() * 12 + 8) + 's';
+          p.style.animationDelay = (Math.random() * 15) + 's';
+          bg.appendChild(p);
+        }
+      }
+    </script>
   </body>
 </html>
