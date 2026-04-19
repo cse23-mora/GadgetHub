@@ -5,10 +5,13 @@ import "../styles/global.css";
 <style>
   /* Hero */
   .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 28px 24px 32px;
+    gap: 14px;
+    padding: 36px 24px 32px;
     animation: fadeUp 0.8s ease both;
-    isolation: isolate;
   }
 
   @keyframes fadeUp {
@@ -25,23 +28,19 @@ import "../styles/global.css";
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: block;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 14px;
     line-height: 1.25;
+    margin: 0;
+    padding: 0;
   }
 
   .hero-sub {
     font-size: 1rem;
     color: rgba(232, 244, 255, 0.6);
     max-width: 520px;
-    margin: 0 auto;
     line-height: 1.7;
     font-weight: 300;
-    display: block;
-    position: relative;
-    z-index: 1;
+    margin: 0;
+    padding: 0;
   }
 
   /* Card grid */
