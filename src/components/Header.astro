@@ -162,7 +162,7 @@ import "../styles/global.css";
   // ── Theme toggle ──
   const html = document.documentElement;
   const stored = localStorage.getItem('gh-theme');
-  if (stored === 'light') html.classList.add('light');
+  if (stored !== 'dark') html.classList.add('light');
 
   function syncToggleUI() {
     const isLight = html.classList.contains('light');

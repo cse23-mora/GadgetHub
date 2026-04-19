@@ -18,7 +18,7 @@ import Preloader from '../components/Preloader.astro';
     <script is:inline>
       (function() {
         try {
-          if (localStorage.getItem('gh-theme') === 'light') {
+          if (localStorage.getItem('gh-theme') !== 'dark') {
             document.documentElement.classList.add('light');
           }
         } catch(e) {}
