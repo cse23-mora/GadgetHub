@@ -36,32 +36,32 @@
 /* ── LIGHT MODE ── */
 html.light {
   --bg-base:        #f6f3ff;
-  --bg-mid:         #eef9f0;
+  --bg-mid:         #edf4ff;
   --text-main:      #1a1030;
   --text-dim:       rgba(26, 16, 48, 0.58);
   --surface:        rgba(255, 255, 255, 0.78);
   --surface-card:   rgba(255, 255, 255, 0.75);
   --surface-mobile: rgba(255, 255, 255, 0.98);
-  --border-subtle:  rgba(88, 43, 126, 0.15);
+  --border-subtle:  rgba(51, 104, 255, 0.18);
   --nav-link-color: rgba(26, 16, 48, 0.65);
-  --nav-link-border:rgba(88, 43, 126, 0.25);
-  --nav-link-hover: #582b7e;
-  --card-img-bg:    linear-gradient(160deg, #f0ebff 0%, #e8f8f0 60%, #fdf0ff 100%);
-  --card-body-bg:   linear-gradient(180deg, rgba(240,235,255,0.6) 0%, rgba(255,255,255,0.88) 100%);
-  --card-corner:    #f0ebff;
+  --nav-link-border:rgba(51, 104, 255, 0.24);
+  --nav-link-hover: #3368ff;
+  --card-img-bg:    linear-gradient(160deg, #eef2ff 0%, #e8f8ff 60%, #fdf0ff 100%);
+  --card-body-bg:   linear-gradient(180deg, rgba(238,242,255,0.65) 0%, rgba(255,255,255,0.9) 100%);
+  --card-corner:    #eef2ff;
   --footer-bg:      rgba(255, 255, 255, 0.85);
-  --footer-border:  rgba(88, 43, 126, 0.12);
+  --footer-border:  rgba(51, 104, 255, 0.14);
   --footer-text:    rgba(26, 16, 48, 0.5);
-  --footer-highlight: #582b7e;
+  --footer-highlight: #3368ff;
   --orb1-color:     rgba(129, 241, 51, 0.20);
-  --orb2-color:     rgba(88, 43, 126, 0.12);
+  --orb2-color:     rgba(51, 104, 255, 0.15);
   --orb3-color:     rgba(0, 191, 165, 0.16);
   --orb4-color:     rgba(200, 55, 171, 0.12);
-  --bg-gradient:    linear-gradient(170deg, #f6f3ff 0%, #eef9f0 50%, #f8f0ff 100%);
+  --bg-gradient:    linear-gradient(170deg, #f6f3ff 0%, #edf4ff 50%, #f8f0ff 100%);
   --preloader-bg:   #f6f3ff;
-  --spinner-border: rgba(88, 43, 126, 0.15);
-  --spinner-top:    #582b7e;
-  --spinner-glow:   rgba(88, 43, 126, 0.2);
+  --spinner-border: rgba(51, 104, 255, 0.16);
+  --spinner-top:    #3368ff;
+  --spinner-glow:   rgba(51, 104, 255, 0.22);
 }
 
 html,
