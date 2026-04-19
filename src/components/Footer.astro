@@ -4,26 +4,27 @@ import "../styles/global.css";
 
 <style>
   footer {
-    border-top: 1px solid rgba(129, 241, 51, 0.1);
-    background: rgba(26, 20, 40, 0.92);
+    border-top: 1px solid var(--footer-border);
+    background: var(--footer-bg);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     padding: 22px 24px;
     text-align: center;
     position: relative;
     z-index: 10;
+    transition: background 0.3s, border-color 0.3s;
   }
 
   footer p {
     font-size: 0.78rem;
-    color: rgba(232, 244, 255, 0.4);
+    color: var(--footer-text);
     letter-spacing: 0.05em;
     margin-bottom: 4px;
     font-family: 'Exo 2', sans-serif;
   }
 
-  footer p .highlight { color: #81f133; font-weight: 600; }
-  footer p .heart { color: #ff2d78; }
+  footer p .highlight { color: var(--footer-highlight); font-weight: 600; }
+  footer p .heart { color: #c837ab; }
 </style>
 
 <footer>

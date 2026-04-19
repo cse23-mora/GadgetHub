@@ -2,29 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── DARK MODE (default) ── */
 :root {
-  /* Logo-matched palette */
-  --bg-deep:      #1a1428;
-  --bg-mid:       #221a35;
-  --green-logo:   #81f133;
-  --teal-logo:    #15ffe0;
-  --purple-logo:  #582b7e;
-  --pink-logo:    #c837ab;
-  --white:        #f5fff5;
-  --white-dim:    rgba(245, 255, 245, 0.65);
-  /* Keep these for card/component styles */
-  --cyan-glow:    #15ffe0;
-  --purple-pop:   #582b7e;
-  --pink-flash:   #c837ab;
+  --bg-base:        #1a1428;
+  --bg-mid:         #221a35;
+  --text-main:      #f5fff5;
+  --text-dim:       rgba(245, 255, 245, 0.6);
+  --surface:        rgba(26, 20, 40, 0.82);
+  --surface-card:   rgba(26, 20, 40, 0.80);
+  --surface-mobile: rgba(13, 10, 20, 0.97);
+  --border-subtle:  rgba(129, 241, 51, 0.12);
+  --nav-link-color: rgba(240, 253, 244, 0.6);
+  --nav-link-border:rgba(129, 241, 51, 0.2);
+  --nav-link-hover: #81f133;
+  --card-img-bg:    linear-gradient(160deg, #2a1f40 0%, #1e1630 60%, #1a1428 100%);
+  --card-body-bg:   linear-gradient(180deg, rgba(88,43,126,0.14) 0%, rgba(26,20,40,0.92) 100%);
+  --card-corner:    #2a1f40;
+  --footer-bg:      rgba(26, 20, 40, 0.92);
+  --footer-border:  rgba(129, 241, 51, 0.1);
+  --footer-text:    rgba(232, 244, 255, 0.4);
+  --footer-highlight: #81f133;
+  --orb1-color:     rgba(129, 241, 51, 0.28);
+  --orb2-color:     rgba(88, 43, 126, 0.38);
+  --orb3-color:     rgba(21, 255, 224, 0.20);
+  --orb4-color:     rgba(200, 55, 171, 0.22);
+  --bg-gradient:    linear-gradient(170deg, #1a1428 0%, #221a35 50%, #16112a 100%);
+  --preloader-bg:   #1a1428;
+  --spinner-border: rgba(129, 241, 51, 0.15);
+  --spinner-top:    #81f133;
+  --spinner-glow:   rgba(129, 241, 51, 0.25);
+}
+
+/* ── LIGHT MODE ── */
+html.light {
+  --bg-base:        #f6f3ff;
+  --bg-mid:         #eef9f0;
+  --text-main:      #1a1030;
+  --text-dim:       rgba(26, 16, 48, 0.58);
+  --surface:        rgba(255, 255, 255, 0.78);
+  --surface-card:   rgba(255, 255, 255, 0.75);
+  --surface-mobile: rgba(255, 255, 255, 0.98);
+  --border-subtle:  rgba(88, 43, 126, 0.15);
+  --nav-link-color: rgba(26, 16, 48, 0.65);
+  --nav-link-border:rgba(88, 43, 126, 0.25);
+  --nav-link-hover: #582b7e;
+  --card-img-bg:    linear-gradient(160deg, #f0ebff 0%, #e8f8f0 60%, #fdf0ff 100%);
+  --card-body-bg:   linear-gradient(180deg, rgba(240,235,255,0.6) 0%, rgba(255,255,255,0.88) 100%);
+  --card-corner:    #f0ebff;
+  --footer-bg:      rgba(255, 255, 255, 0.85);
+  --footer-border:  rgba(88, 43, 126, 0.12);
+  --footer-text:    rgba(26, 16, 48, 0.5);
+  --footer-highlight: #582b7e;
+  --orb1-color:     rgba(129, 241, 51, 0.20);
+  --orb2-color:     rgba(88, 43, 126, 0.12);
+  --orb3-color:     rgba(0, 191, 165, 0.16);
+  --orb4-color:     rgba(200, 55, 171, 0.12);
+  --bg-gradient:    linear-gradient(170deg, #f6f3ff 0%, #eef9f0 50%, #f8f0ff 100%);
+  --preloader-bg:   #f6f3ff;
+  --spinner-border: rgba(88, 43, 126, 0.15);
+  --spinner-top:    #582b7e;
+  --spinner-glow:   rgba(88, 43, 126, 0.2);
 }
 
 html,
 body {
   height: 100%;
   margin: 0;
-  background-color: #1a1428;
-  color: var(--white);
+  background-color: var(--bg-base);
+  color: var(--text-main);
   overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 /* ── ANIMATED BACKGROUND ── */
@@ -36,22 +83,18 @@ body {
   pointer-events: none;
 }
 
-/* Deep dark base with gentle logo-color warmth */
 .bg-canvas::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
-    /* Green glow — top-left: signals "safe / all clear" */
-    radial-gradient(ellipse 70% 55% at 10% 5%,  rgba(129, 241, 51,  0.18) 0%, transparent 60%),
-    /* Purple glow — right side: trustworthy depth */
-    radial-gradient(ellipse 60% 50% at 90% 60%, rgba(88,  43,  126, 0.28) 0%, transparent 65%),
-    /* Teal glow — lower-center: calm reassurance */
-    radial-gradient(ellipse 55% 45% at 50% 95%, rgba(21,  255, 224, 0.14) 0%, transparent 55%),
-    /* Pink accent — upper-right: energy without alarm */
-    radial-gradient(ellipse 40% 35% at 85% 8%,  rgba(200, 55,  171, 0.13) 0%, transparent 50%),
-    linear-gradient(170deg, #1a1428 0%, #221a35 50%, #16112a 100%);
+    radial-gradient(ellipse 70% 55% at 10% 5%,  var(--orb1-color) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 90% 60%, var(--orb2-color) 0%, transparent 65%),
+    radial-gradient(ellipse 55% 45% at 50% 95%, var(--orb3-color) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 35% at 85% 8%,  var(--orb4-color) 0%, transparent 50%),
+    var(--bg-gradient);
   animation: breathe 12s ease-in-out infinite alternate;
+  transition: background 0.4s;
 }
 
 /* Slow breathing pulse — feels alive and protective, not threatening */
@@ -68,33 +111,29 @@ body {
   animation: orbDrift ease-in-out infinite alternate;
 }
 
-/* Green orb — top-left, "you're safe here" */
 .orb-1 {
   width: 420px; height: 420px;
-  background: radial-gradient(circle, rgba(129, 241, 51, 0.28), transparent 70%);
+  background: radial-gradient(circle, var(--orb1-color), transparent 70%);
   top: -100px; left: -100px;
   animation-duration: 18s;
 }
-/* Purple orb — right, trustworthy anchor */
 .orb-2 {
   width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(88, 43, 126, 0.38), transparent 70%);
+  background: radial-gradient(circle, var(--orb2-color), transparent 70%);
   top: 25%; right: -80px;
   animation-duration: 22s;
   animation-delay: -6s;
 }
-/* Teal orb — bottom-left, calm & secure */
 .orb-3 {
   width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(21, 255, 224, 0.20), transparent 70%);
+  background: radial-gradient(circle, var(--orb3-color), transparent 70%);
   bottom: 5%; left: 8%;
   animation-duration: 26s;
   animation-delay: -11s;
 }
-/* Pink orb — bottom-right, warm energy */
 .orb-4 {
   width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(200, 55, 171, 0.22), transparent 70%);
+  background: radial-gradient(circle, var(--orb4-color), transparent 70%);
   bottom: 10%; right: 5%;
   animation-duration: 20s;
   animation-delay: -4s;

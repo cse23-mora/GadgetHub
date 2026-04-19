@@ -24,6 +24,7 @@ import "../styles/global.css";
     font-size: clamp(1.6rem, 3.5vw, 2.6rem);
     font-weight: 900;
     letter-spacing: 0.04em;
+    /* Dark mode: green → teal → pink → purple (all vivid, all visible on dark) */
     background: linear-gradient(135deg, #81f133 0%, #15ffe0 40%, #c837ab 75%, #582b7e 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -33,9 +34,16 @@ import "../styles/global.css";
     padding: 0;
   }
 
+  /* Light mode: replace pale teal midpoint with a deeper teal so it stays visible on white */
+  html.light .hero-title {
+    background: linear-gradient(135deg, #4a9a0a 0%, #007a6a 40%, #c837ab 75%, #3d1a5c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
   .hero-sub {
     font-size: 1rem;
-    color: rgba(232, 244, 255, 0.6);
+    color: var(--text-dim);
     max-width: 520px;
     line-height: 1.7;
     font-weight: 300;
@@ -59,14 +67,14 @@ import "../styles/global.css";
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(129, 241, 51, 0.2);
-    background: rgba(26, 20, 40, 0.75);
+    background: var(--surface-card);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     box-shadow:
       0 0 40px rgba(129, 241, 51, 0.07),
       0 0 80px rgba(88, 43, 126, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.07);
-    transition: transform 0.35s, box-shadow 0.35s;
+    transition: transform 0.35s, box-shadow 0.35s, background 0.3s;
     position: relative;
     text-decoration: none;
     color: inherit;
@@ -99,12 +107,13 @@ import "../styles/global.css";
   /* Card image area */
   .card-img {
     height: 140px;
-    background: linear-gradient(160deg, #2a1f40 0%, #1e1630 60%, #1a1428 100%);
+    background: var(--card-img-bg);
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
+    transition: background 0.3s;
   }
 
   .card-img::after {
@@ -177,14 +186,15 @@ import "../styles/global.css";
     right: -8px;
     width: 20px;
     height: 20px;
-    background: #2a1f40;
+    background: var(--card-corner);
     clip-path: polygon(0 0, 100% 100%, 0 100%);
   }
 
   /* Card body */
   .card-body {
     padding: 22px 20px 18px;
-    background: linear-gradient(180deg, rgba(88, 43, 126, 0.14) 0%, rgba(26, 20, 40, 0.92) 100%);
+    background: var(--card-body-bg);
+    transition: background 0.3s;
   }
 
   .card-title-row {
@@ -198,7 +208,7 @@ import "../styles/global.css";
     font-family: 'Orbitron', monospace;
     font-size: 0.95rem;
     font-weight: 700;
-    color: #f0fdf4;
+    color: var(--text-main);
     letter-spacing: 0.03em;
   }
 
@@ -216,7 +226,7 @@ import "../styles/global.css";
 
   .card-desc {
     font-size: 0.82rem;
-    color: rgba(240, 253, 244, 0.58);
+    color: var(--text-dim);
     line-height: 1.65;
     margin-bottom: 16px;
     font-weight: 300;
@@ -243,6 +253,11 @@ import "../styles/global.css";
   .tag-safe   { color: #81f133; border-color: rgba(129, 241, 51,  0.4); background: rgba(129, 241, 51,  0.08); }
   .tag-secure { color: #15ffe0; border-color: rgba(21,  255, 224, 0.4); background: rgba(21,  255, 224, 0.08); }
   .tag-local  { color: #c837ab; border-color: rgba(200, 55,  171, 0.4); background: rgba(200, 55,  171, 0.08); }
+
+  /* Light mode tag overrides for contrast */
+  html.light .tag-safe   { color: #3a8a10; background: rgba(129, 241, 51,  0.12); }
+  html.light .tag-secure { color: #006d5e; border-color: rgba(0, 191, 165, 0.5); background: rgba(0, 191, 165, 0.10); }
+  html.light .tag-local  { color: #582b7e; background: rgba(88, 43, 126, 0.10); }
 </style>
 
 <section style="position: relative; z-index: 1;">
