@@ -4,14 +4,14 @@
 
 :root {
   /* Logo-matched palette */
-  --bg-deep:      #0d0a14;
-  --bg-mid:       #120f1e;
+  --bg-deep:      #1a1428;
+  --bg-mid:       #221a35;
   --green-logo:   #81f133;
   --teal-logo:    #15ffe0;
   --purple-logo:  #582b7e;
   --pink-logo:    #c837ab;
-  --white:        #f0fdf4;
-  --white-dim:    rgba(240, 253, 244, 0.6);
+  --white:        #f5fff5;
+  --white-dim:    rgba(245, 255, 245, 0.65);
   /* Keep these for card/component styles */
   --cyan-glow:    #15ffe0;
   --purple-pop:   #582b7e;
@@ -22,7 +22,7 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background-color: var(--bg-deep);
+  background-color: #1a1428;
   color: var(--white);
   overflow-x: hidden;
 }
@@ -43,14 +43,14 @@ body {
   inset: 0;
   background:
     /* Green glow — top-left: signals "safe / all clear" */
-    radial-gradient(ellipse 70% 55% at 10% 5%,  rgba(129, 241, 51,  0.13) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 55% at 10% 5%,  rgba(129, 241, 51,  0.18) 0%, transparent 60%),
     /* Purple glow — right side: trustworthy depth */
-    radial-gradient(ellipse 60% 50% at 90% 60%, rgba(88,  43,  126, 0.35) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 90% 60%, rgba(88,  43,  126, 0.28) 0%, transparent 65%),
     /* Teal glow — lower-center: calm reassurance */
-    radial-gradient(ellipse 55% 45% at 50% 95%, rgba(21,  255, 224, 0.10) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 45% at 50% 95%, rgba(21,  255, 224, 0.14) 0%, transparent 55%),
     /* Pink accent — upper-right: energy without alarm */
-    radial-gradient(ellipse 40% 35% at 85% 8%,  rgba(200, 55,  171, 0.10) 0%, transparent 50%),
-    linear-gradient(170deg, #0d0a14 0%, #120f1e 50%, #0a0d12 100%);
+    radial-gradient(ellipse 40% 35% at 85% 8%,  rgba(200, 55,  171, 0.13) 0%, transparent 50%),
+    linear-gradient(170deg, #1a1428 0%, #221a35 50%, #16112a 100%);
   animation: breathe 12s ease-in-out infinite alternate;
 }
 
@@ -71,14 +71,14 @@ body {
 /* Green orb — top-left, "you're safe here" */
 .orb-1 {
   width: 420px; height: 420px;
-  background: radial-gradient(circle, rgba(129, 241, 51, 0.22), transparent 70%);
+  background: radial-gradient(circle, rgba(129, 241, 51, 0.28), transparent 70%);
   top: -100px; left: -100px;
   animation-duration: 18s;
 }
 /* Purple orb — right, trustworthy anchor */
 .orb-2 {
   width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(88, 43, 126, 0.45), transparent 70%);
+  background: radial-gradient(circle, rgba(88, 43, 126, 0.38), transparent 70%);
   top: 25%; right: -80px;
   animation-duration: 22s;
   animation-delay: -6s;
@@ -86,7 +86,7 @@ body {
 /* Teal orb — bottom-left, calm & secure */
 .orb-3 {
   width: 280px; height: 280px;
-  background: radial-gradient(circle, rgba(21, 255, 224, 0.14), transparent 70%);
+  background: radial-gradient(circle, rgba(21, 255, 224, 0.20), transparent 70%);
   bottom: 5%; left: 8%;
   animation-duration: 26s;
   animation-delay: -11s;
@@ -94,7 +94,7 @@ body {
 /* Pink orb — bottom-right, warm energy */
 .orb-4 {
   width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(200, 55, 171, 0.18), transparent 70%);
+  background: radial-gradient(circle, rgba(200, 55, 171, 0.22), transparent 70%);
   bottom: 10%; right: 5%;
   animation-duration: 20s;
   animation-delay: -4s;
